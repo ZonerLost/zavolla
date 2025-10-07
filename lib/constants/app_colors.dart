@@ -1,0 +1,25 @@
+import 'package:flutter/material.dart';
+
+const kPrimaryColor = Color(0xffFFFFFF);
+const kSecondaryColor = Color(0xff171A1F);
+const kTertiaryColor = Color(0xff000000);
+const kQuaternaryColor = Color(0xff666666);
+const kBlackColor = Color(0xff000000);
+const kInputBorderColor = Color(0xffD1D1D1);
+const kFillColor = Color(0xffF0F0F0);
+const kFillColor2 = Color(0xffF3F4F6);
+const kHintColor = Color(0xff666666);
+const kBorderColor = Color(0xffDEE1E6);
+const kGreyColor = Color(0xffD9D9D9);
+const kGreyColor2 = Color(0xff565D6D);
+const kGreyColor3 = Color(0xff2C2C2C);
+const kGreyColor4 = Color(0xffDCECFF);
+const kGreyColor5 = Color(0xffF3F4F6);
+const kGreyColor6 = Color(0xff525252);
+const kRedColor = Color(0xffD74753);
+const kGreenColor = Color(0xff198624);
+const kGreenColor2 = Color(0xff187A00);
+const kLightGreenColor = Color(0xffEBFFE6);
+const kYellowColor = Color(0xffC8A107);
+const kOrangeColor = Color(0xffFF7F3F);
+const kBlueColor = Color(0xff286BD7);
