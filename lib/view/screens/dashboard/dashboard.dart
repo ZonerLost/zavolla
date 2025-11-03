@@ -6,6 +6,9 @@ import 'package:zavolla/constants/app_images.dart';
 import 'package:zavolla/constants/app_responsiveness.dart';
 import 'package:zavolla/constants/app_sizes.dart';
 import 'package:zavolla/main.dart';
+import 'package:zavolla/view/screens/inventory_management/inventory_management.dart';
+import 'package:zavolla/view/screens/sales/sales.dart';
+import 'package:zavolla/view/screens/transactions/transactions.dart';
 import 'package:zavolla/view/widget/common_image_view_widget.dart';
 import 'package:zavolla/view/widget/custom_app_bar.dart';
 import 'package:zavolla/view/widget/layout_locker_widget.dart';
@@ -777,61 +780,72 @@ class _DashboardState extends State<Dashboard> {
                       {
                         'image': Assets.imagesSales,
                         'title': 'Sales by users today',
-                        'value': 'View details',
+                        'value': 'Manage customer orders',
                       },
                       {
                         'image': Assets.imagesTransaction,
-                        'title': 'Manage customer orders',
-                        'value': 'Review details',
-                      },
-                      {
-                        'image': Assets.imagesInventory,
                         'title': 'Transactions',
                         'value': 'Review sales history',
                       },
+                      {
+                        'image': Assets.imagesInventory,
+                        'title': 'Inventory Management',
+                        'value': 'Review details',
+                      },
                     ];
                     final item = summaryData[index];
-                    return Container(
-                      decoration: BoxDecoration(
-                        color: kPrimaryColor,
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color(
-                              0xff171A1F,
-                            ).withValues(alpha: .12),
-                            blurRadius: 12,
-                            offset: const Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      padding: EdgeInsets.symmetric(
-                        vertical: 20,
-                        horizontal: 14,
-                      ),
-                      child: Row(
-                        children: [
-                          Image.asset(item['image'], height: 24),
-                          SizedBox(width: 14),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
-                              children: [
-                                MyText(
-                                  text: item['title'],
-                                  size: 16,
-                                  weight: FontWeight.w500,
-                                  paddingBottom: 4,
-                                ),
-                                MyText(
-                                  text: item['value'],
-                                  color: kQuaternaryColor,
-                                ),
-                              ],
+                    return GestureDetector(
+                      onTap: () {
+                        if (index == 0) {
+                          Get.to(() => Sales());
+                        } else if (index == 1) {
+                          Get.to(() => Transactions());
+                        } else if (index == 2) {
+                          Get.to(() => InventoryManagement());
+                        }
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: kPrimaryColor,
+                          borderRadius: BorderRadius.circular(12),
+                          boxShadow: [
+                            BoxShadow(
+                              color: const Color(
+                                0xff171A1F,
+                              ).withValues(alpha: .12),
+                              blurRadius: 12,
+                              offset: const Offset(0, 4),
                             ),
-                          ),
-                          Image.asset(Assets.imagesArrowNext, height: 20),
-                        ],
+                          ],
+                        ),
+                        padding: EdgeInsets.symmetric(
+                          vertical: 20,
+                          horizontal: 14,
+                        ),
+                        child: Row(
+                          children: [
+                            Image.asset(item['image'], height: 24),
+                            SizedBox(width: 14),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  MyText(
+                                    text: item['title'],
+                                    size: 16,
+                                    weight: FontWeight.w500,
+                                    paddingBottom: 4,
+                                  ),
+                                  MyText(
+                                    text: item['value'],
+                                    color: kQuaternaryColor,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Image.asset(Assets.imagesArrowNext, height: 20),
+                          ],
+                        ),
                       ),
                     );
                   },
